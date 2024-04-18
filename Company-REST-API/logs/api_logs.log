@@ -1,0 +1,3 @@
+2024-04-18 16:51:45,335:INFO:Displayed files are: [(2, 'new name2', 'machine_learning'), (3, 'string', 'HR')]
+2024-04-18 16:51:48,223:INFO:Displayed files are: [(2, 'new name2', 'machine_learning'), (3, 'string', 'HR')]
+2024-04-18 16:52:25,702:INFO:The newly created employee is : id=UUID('9624d440-c2f4-4d27-8634-53fa5649555f') name='Prabin Bohara' department=<Department.machine_learning: 'machine_learning'>

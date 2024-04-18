@@ -3,6 +3,12 @@ from typing import List
 from database import conn, cursor
 from models import Employee
 
+import logging
+
+logging.basicConfig(level=logging.INFO, filename="logs/api_logs.log",
+                    format="%(asctime)s:%(levelname)s:%(message)s")
+
+
 app = FastAPI()
 
 @app.on_event("startup")
@@ -21,6 +27,7 @@ async def startup():
 async def read_employees():
     cursor.execute('SELECT * FROM employees')
     employees = cursor.fetchall()
+    logging.info(f"Displayed files are: {employees}")
     return employees
 
 
@@ -28,16 +35,23 @@ async def read_employees():
 async def read_employee(employee_id: int):
     cursor.execute('SELECT * FROM employees WHERE id = ?', (employee_id,))
     employee = cursor.fetchone()
+
     if employee is None:
+        logging.error(f"Employee with id : {employee_id} not found")
         raise HTTPException(status_code=404, detail="Employee not found")
+
+    logging.info(f"The details of employee_id {employee_id} is : {employee}")
     return employee
+
 
 @app.post("/employees/")
 async def create_employee(employee: Employee):
     cursor.execute('INSERT INTO employees (name, department) VALUES (?, ?)',
                    (employee.name, employee.department))
     conn.commit()
+    logging.info(f"The newly created employee is : {employee}")
     return employee
+
 
 @app.delete("/employees/{employee_id}")
 async def delete_employee(employee_id: int):
