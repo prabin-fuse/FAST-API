@@ -1,0 +1,30 @@
+1) Identify Resources:
+- objects like customers, events, transactions
+- nested resources like customers may have sales, events
+- list them out and make diagrams of hierarchy
+
+2) Define endpints:
+- Methods, APIEnd points and description
+- Shouldn't contain verb like; don't use /get_orders. Rather use GET method and endpoint /orders
+
+3) API Versioninig:
+
+4) Pick Data Interchange Format:
+- Popular options => XML(popular with SOAP) and JSON(more popular with REST)
+
+5) Success Responses:
+- in status code
+- send correct type of Content-Type in both request and response as it helps user to parse them correctly
+- for single object it is just one json object not the list
+
+6) Designing error responses:
+- status code 
+- descriptive error message in JSON object
+
+# FastAPI:
+
+1) server: uvicorn => fast, lighweight and asynchronous asgi server
+
+ASGI:
+- async await for concurrency handling
+#pydantic

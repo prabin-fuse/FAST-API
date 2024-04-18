@@ -1,0 +1,47 @@
+- Python provides tools for both accessing and building REST APIs.
+
+REST Architecture:
+- REpresentational State Transtfer
+- Client server architecture
+
+Architectural constraints:
+- Stateless
+- Client-server
+- Cacheable ; the data retrieved must to cacheable either by client or the server
+- Uniform interface
+- Layered Sytem ; indirectly access through other layers such as proxy or load balancer.
+- Code on demand (Optional) ; server may transfer codes to client such as js
+
+Note: REST is not specification rather a set of guidelines on how to architect a network-connected software systems.
+
+REST APIs and Web Services:
+- accessing data from a REST web services (API) by sending HTTP Request to specific URL 
+  and processing the response.
+- Web resources ; any data available for web services
+- HTTP methods tells what operations to be performed on web resources
+- GET, POST, PUT, PATCH, DELETE
+
+Status Code:
+-  Sent along with HTTP response.
+- API calling apps can access it and do operations accordigly
+Coderange	Category
+2xx	        Successful operation
+3xx	        Redirection
+4xx	        Client error
+5xx	        Server error
+
+API ENdpoints:
+- publicly exposed url that client apps can use
+- methods, api endpiint and description is necessary
+
+Consuming REST APIs:
+- request library
+- pip install requests
+- hides the abstraction of complex HTTP requests
+
+1) GET
+- read-only basic operation
+2) POST
+3) PUT
+4) PATCH
+5) DELETE
